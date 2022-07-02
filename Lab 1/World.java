@@ -1,16 +1,10 @@
 
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
  * @author andreugordillovazquez, mireiacalerojimenez
  */
+
 public class World {
     private int width;
     private int height;
@@ -31,32 +25,36 @@ public class World {
         }
     }
     
-    public int getW(){return width;}
-    //Mètode getter que retorna l'amplada de la finestra.
+    // Getter method that returns the width of the window.
+    public int getW(){
+        return width;
+    }
     
-    public int getH(){return height;}
-    //Mètode getter que retorna l'alçada de la finestra.
+    // Getter method that returns the height of the window.
+    public int getH(){
+        return height;
+    }
+
+    // Getter method that returns the number of visible agents in the window.
+    public int getNumAgents(){
+        return numAgents;
+    }
     
-    public int getNumAgents(){return numAgents;}
-    //Mètode getter que retorna el nombre d'agents visibles a la finestra.
+    // Getter method that returns the agent in the ith position in the list.
+    public Agent getAgent(int i){
+        return agents[i];
+    }
     
-    public Agent getAgent(int i){return agents[i];}
-    //Mètode getter que retorna un agent de la llista en funció de l'index passat per paràmetre.
-    
+    // Method that returns a random vector inside the window.
     public Vec2D randomPointInsideWorld(){
-        /**
-         * Mètode que retorna un vector aleatori dins de la finestra
-         */
         double x = screenMargin + Math.random() * (width-screenMargin);
         double y = screenMargin + Math.random() * (height-screenMargin);
         Vec2D p = new Vec2D(x,y);
         return p;
     }
     
+    // Method that updates at each step each agent of the simulation
     public void update(){
-        /**
-         * Mètode que actualitza a cada pas cada agent de la simulació
-         */
         Agent a;
         Vec2D d;
         for (int i = 0; i<numAgents; i++){
@@ -70,10 +68,8 @@ public class World {
         }
     }
     
+    // Run method that executes s times the update() function.
     public void run (int s){
-        /**
-         * Mètode run que executa s cops la funció update()
-         */
         for (int i=0; i<s; i++){
             update();
         }
