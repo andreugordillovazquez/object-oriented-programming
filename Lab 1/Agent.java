@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author andreugordillovazquez, mireiacalerojimenez
  */
-public class Agent { //Es declaren els atributs de la classe Agent
+
+// The attributes of the Agent class are declared.
+public class Agent { 
     private Vec2D pos;
     private Vec2D dir;
     private Vec2D obj;
@@ -17,57 +13,63 @@ public class Agent { //Es declaren els atributs de la classe Agent
     private double weight;
     private int id;
     
+    // In the constructor, we initialize the parameters needed to create an agent.
     public Agent(Vec2D p, Vec2D o, double rad, int i){
-        /**
-         * En el constructor, inicialitzem els paràmetres necessaris per a crear un agent
-         */
         pos = p;        
         obj = o;
         radius = rad;
         id = i;
-        speed = 1.0;        //La velocitat per defecte és 1 píxel per segon
-        weight = radius;    //El pes és proporcional al radi
-        maxspeed = radius;  //La velocitat màxima és proporcional al radi
+        speed = 1.0;            // The default speed is 1 pixel per second.
+        weight = radius;        // The weight is proportional to the radius.
+        maxspeed = radius;      // The maximum speed is proportional to the radius.
         dir = getDirToObj();
     }
     
-    public void setPos(Vec2D p){this.pos = p;}
-    //Mètode setter per a establir la posició d'un agent i guardar-la.
+    // Setter method for setting the position of an agent and saving it.
+    public void setPos(Vec2D p){
+        this.pos = p;
+    }
     
-    public void setDir(Vec2D dir){this.dir = dir;}
-    //Mètode setter per a establir la direcció d'un agent i guardar-la.
+    // Setter method for setting the agent direction and saving it.
+    public void setDir(Vec2D dir){
+        this.dir = dir;
+    }
     
-    public void setObj(Vec2D o){this.obj = o;}
-    //Mètode setter per a establir l'objectiu d'un agent i guardar-lo.
-     
+    // Setter method for setting an agent's goal and saving it.
+    public void setObj(Vec2D o){
+        this.obj = o;
+    }
     
-    public Vec2D getPos(){return pos;}
-    //Mètode getter que retorna la direcció d'un agent.
+    // Getter method that returns the position of an agent.
+    public Vec2D getPos(){
+        return pos;
+    }
     
-    public Vec2D getDir(){return dir;}
-    //Mètode getter que retorna la direcció d'un agent.
+    // Getter method that returns the direction of an agent.
+    public Vec2D getDir(){
+        return dir;
+    }
          
+    // Getter method that returns the goal of an agent.
+    public Vec2D getObj(){
+        return obj;
+    }
+
+    // Getter method that returns the radius of an agent.
+    public double getRadius(){
+        return radius;
+    }
     
-    public Vec2D getObj(){return obj;}
-    //Mètode getter que retorna l'objectiu d'un agent.
-    
-    public double getRadius(){return radius;}
-    //Mètode getter que retorna el radi d'un agent.
-    
+    // Getter method that returns the direction to the target with respect to the current position.
     public Vec2D getDirToObj(){
-        /**Mètode getter que retorna
-         * la direcció fins a l'objectiu respecte a la posició acual..
-         */
         Vec2D v = new Vec2D(obj.getX(), obj.getY());
         v.minus(pos);
         v.normalize();
         return v;
     }
     
+    // Update method that updates the position of the agent based on speed and direction.
     public void update(){
-        /**Mètode update que actualitza
-         * la posició de l'agent en funció de la velocitar i la direcció.
-         */
         double x, y;
         x = dir.getX();
         y = dir.getY();
@@ -77,10 +79,8 @@ public class Agent { //Es declaren els atributs de la classe Agent
         pos.sum(v1);
     }
     
+    // ObjReached method that returns true if the agent has reached the target, and false if it has not.
     public boolean objReached(){
-        /**Mètode objReached que retorna 
-         *true si l'agent ha arribat a l'objectiu, i false si no hi ha arribat. 
-         */
         boolean t = true;
         boolean f = false;
         if (pos.dist(obj) <= 10){
@@ -91,11 +91,8 @@ public class Agent { //Es declaren els atributs de la classe Agent
         }
     }
    
+    // ToString method that returns the position, goal, and agent id.
     public String toString(){
-        /**Mètode toString que retorna la posició, l'objectiu
-         * i l'id de l'agent.
-         */
         return "(" + id + " " + pos.toString() + " " + obj.toString() + ")";
     }
 }
-
