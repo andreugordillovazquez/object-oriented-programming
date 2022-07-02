@@ -60,3 +60,18 @@ Once all the classes in the program have been explained, we will give detailed e
   - **public void run(int s):** Run method that runs the update () function s times.
 
 Thanks to these classes and methods, the correct and expected implementation of the proposed problem has been possible.
+
+**2. A description of the possible workarounds that were discussed, and a description of the solution chosen and the reason for choosing that solution over others. It is also a good idea to mention the theoretical concepts related to object-oriented programming that were applied as part of the solution.**
+
+The solution provided in our _.java_ files is the only solution that was discussed, as we believe it was the right one, and for this reason, we focused on properly developing the methods for it. We find that the chosen solution is correct since we have a class for each basic concept of the program, that is to say, we have a class by agent (**class Agent**), a class by the vector (**class Vect2D**), a class by the world (**class World**) and a class for the window where the program is developed (**class MyWorldWindow**). In this way we can develop the methods of each class separately in order to achieve the final result.
+Regarding the theoretical concepts taught in theory classes, we used the following:
+- Classes
+- Attributes
+- Methods, where we can find Builders, Getters and Setters
+- Objects
+- Encapsulation, using a level of visibility, private (by attributes) and public (by methods).
+
+**3. A conclusion that describes how well the solution has worked in practice, i.e. has the tests shown that the classes are implemented correctly? You can also mention any difficulties during implementation, as well as any questions you may have had.**
+
+In conclusion, we found that this practice was of little complexity, as one could follow the script process easily and in a fairly understandable way. Although we have had some doubts during the program process, but we have been able to solve it by consulting the java documentation or with the theories of the subject. The tests proposed by the script have worked well for us, and in this way we have been able to better understand the code. We've also added tests ourselves to see if the program did what we thought it would, to keep track of the code at all times. We didn't encounter any problems calling classes or creating objects. Nor has we had any difficulty calling methods, or using them.
+The only problem we had during programming was when creating and adding agents to the list and the exception appeared: NullPointerException. This problem originated because we were referring to the list of agents without adding them correctly. That way, the space saved by the list would be null and void. However, we ended up finding the error and correcting it.
